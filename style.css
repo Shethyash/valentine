@@ -1,0 +1,220 @@
+/* Global Overrides */
+body {
+    background: radial-gradient(circle at center, #fff5f8 0%, #ffe4e8 50%, #fef2f2 100%);
+    /* Soft glowing gradient */
+    font-family: 'Varela Round', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll from animations */
+}
+
+/* Floating Heart Animation */
+.heart-bg {
+    position: fixed;
+    color: #ffb7c5;
+    font-size: 20px;
+    user-select: none;
+    pointer-events: none;
+    z-index: -1;
+    /* Behind everything */
+    animation: floatUp 15s linear infinite;
+    opacity: 0;
+}
+
+.cursor-heart {
+    position: fixed;
+    color: #ff6b81;
+    font-size: 15px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fadeOut 1s forwards;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-20vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -150%) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Bootstrap Carousel Customization */
+.carousel-item img {
+    height: 90vh;
+    /* Request: 70-80% visible area */
+    object-fit: cover;
+}
+
+
+/* GIF Styling */
+.gif-container img {
+    /* Shadow and radius handled by bootstrap classes now, but we can enforce specific shadow color */
+    box-shadow: 0 10px 25px rgba(249, 168, 212, 0.3) !important;
+}
+
+/* Buttons */
+.yes-btn.btn {
+    transition: transform 0.2s, background-color 0.2s;
+    border: none;
+}
+
+.yes-btn.btn:hover {
+    background-color: #2d3440 !important;
+    /* Darker shade */
+    transform: scale(1.05);
+}
+
+.no-btn.btn {
+    position: relative;
+    /* Needed for the movement logic */
+    border: none;
+}
+
+/* Ensure buttons container has space to scroll */
+.buttons {
+    padding-bottom: 100px;
+}
+
+/* Navbar Brand Styling */
+.navbar {
+    background-color: transparent;
+    padding-top: 20px;
+}
+
+.navbar-brand {
+    font-family: 'Varela Round', sans-serif;
+    color: #db5a88 !important;
+    /* Theme pink */
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Relationship Clock */
+/* Relationship Clock */
+.time-box {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 10px 5px;
+    /* Reduced padding for mobile */
+    min-width: 70px;
+    /* Reduced min-width for mobile */
+    flex: 1;
+    /* Allow flexible width */
+    max-width: 100px;
+    /* Prevent being too wide on mobile */
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: #db5a88;
+    box-shadow: 0 4px 15px rgba(219, 90, 136, 0.15);
+    animation: heartbeat 1.5s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.02);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.02);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+}
+
+.time-box span {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.5rem;
+    /* Smaller font for mobile */
+    font-weight: bold;
+    display: block;
+    line-height: 1;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.time-box .label {
+    font-size: 0.75rem;
+    color: #884466;
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* Desktop sizing for clock */
+@media (min-width: 768px) {
+    .time-box {
+        padding: 15px 20px;
+        min-width: 100px;
+        max-width: none;
+    }
+
+    .time-box span {
+        font-size: 2.2rem;
+    }
+
+    .time-box .label {
+        font-size: 0.85rem;
+        letter-spacing: 1.5px;
+    }
+}
+
+/* Footer Styling */
+.footer {
+    position: relative;
+    z-index: 10;
+}
+
+/* Love Note Card Styling */
+.love-note {
+    background-color: rgba(255, 255, 255, 0.85);
+    /* Semi-transparent white */
+    backdrop-filter: blur(10px);
+    /* Glass effect */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #555;
+    line-height: 1.8;
+    font-family: 'Georgia', serif;
+    /* Elegant serif for story */
+    font-size: 1.1rem;
+}
+
+.love-note p {
+    margin-bottom: 1.5rem;
+}
